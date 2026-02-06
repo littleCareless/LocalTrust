@@ -161,11 +161,10 @@ localtrust cert issue my-app.dev.local
 
 ## 12. 社区与支持
 
-*   **官方网站**: https://localtrust.dev
-*   **文档**: https://docs.localtrust.dev
-*   **GitHub**: https://github.com/localtrust/localtrust
-*   **问题反馈**: https://github.com/localtrust/localtrust/issues
-*   **社区论坛**: https://community.localtrust.dev
+*   **GitHub 仓库**: https://github.com/littleCareless/LocalTrust
+*   **问题反馈**: https://github.com/littleCareless/LocalTrust/issues
+*   **项目文档**: https://github.com/littleCareless/LocalTrust/blob/main/README.md
+*   **讨论区**: https://github.com/littleCareless/LocalTrust/discussions
 
 ## 13. 许可证
 
