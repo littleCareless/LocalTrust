@@ -1,8 +1,29 @@
 {
   "name": "localtrust",
   "version": "1.0.0",
-  "private": true,
-  "description": "LocalTrust: Stop Ignoring SSL Warnings, Start Developing.",
+  "private": false,
+  "description": "LocalTrust: Stop Ignoring SSL Warnings, Start Developing. An internal HTTPS management tool for development teams.",
+  "author": "littleCareless <contact@localtrust.dev>",
+  "license": "MIT",
+  "homepage": "https://github.com/littleCareless/LocalTrust#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/littleCareless/LocalTrust.git"
+  },
+  "bugs": {
+    "url": "https://github.com/littleCareless/LocalTrust/issues"
+  },
+  "keywords": [
+    "https",
+    "ssl",
+    "certificate",
+    "internal-ca",
+    "development",
+    "dns",
+    "localhost",
+    "self-signed-certificate",
+    "devops"
+  ],
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",

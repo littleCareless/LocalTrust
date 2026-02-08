@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 📖 文档
+    url: https://github.com/littleCareless/LocalTrust#readme
+    about: 请先查阅项目文档
+  - name: 💬 讨论区
+    url: https://github.com/littleCareless/LocalTrust/discussions
+    about: 一般的问答和讨论
+  - name: 📧 邮件联系
+    url: mailto:contact@localtrust.dev
+    about: 私密问题或安全相关事项

@@ -1,7 +1,29 @@
 {
   "name": "@localtrust/server",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
+  "description": "LocalTrust Server - Internal HTTPS CA and DNS management service",
+  "author": "littleCareless <contact@localtrust.dev>",
+  "license": "MIT",
+  "homepage": "https://github.com/littleCareless/LocalTrust/tree/main/apps/server#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/littleCareless/LocalTrust.git"
+  },
+  "bugs": {
+    "url": "https://github.com/littleCareless/LocalTrust/issues"
+  },
+  "keywords": [
+    "localtrust",
+    "https",
+    "certificate-authority",
+    "dns",
+    "server",
+    "fastify"
+  ],
+  "exports": "./dist/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsup",

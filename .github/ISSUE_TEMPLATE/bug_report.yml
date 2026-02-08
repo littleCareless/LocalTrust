@@ -1,0 +1,101 @@
+name: 🐛 Bug Report
+description: 报告 LocalTrust 中的 Bug
+labels: ["bug", "triage"]
+body:
+
+  - type: markdown
+    attributes:
+      value: |
+        感谢您提交 Bug 报告！请填写以下信息以帮助我们复现和修复问题。
+
+  - type: input
+    id: version
+    label: LocalTrust 版本
+    description: "请运行 `localtrust --version` 获取版本号"
+    placeholder: "例如: 1.0.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    label: 受影响的组件
+    description: "哪个部分出现了问题？"
+    options:
+      - "服务端 (server)"
+      - "前端界面 (web)"
+      - "命令行工具 (CLI)"
+      - "文档 (docs)"
+      - "其他"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    label: 操作系统
+    description: "您使用的操作系统是什么？"
+    options:
+      - "macOS"
+      - "Linux"
+      - "Windows"
+      - "其他"
+    validations:
+      required: true
+
+  - type: input
+    id: node-version
+    label: Node.js 版本
+    description: "请运行 `node --version` 获取版本号"
+    placeholder: "例如: v18.19.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    label: Bug 描述
+    description: "请详细描述您遇到的问题"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    label: 复现步骤
+    description: "请提供复现此问题的步骤（请包含具体的命令或操作）"
+    placeholder: |
+      1. 第一步
+      2. 第二步
+      3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    label: 期望行为
+    description: "您期望发生什么？"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    label: 实际行为
+    description: "实际发生了什么？"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    label: 错误日志
+    description: "请粘贴相关的错误日志或终端输出（如果有）"
+    placeholder: |
+      ```
+
+      ```
+
+  - type: textarea
+    id: screenshots
+    label: 截图
+    description: "如果可能，请提供截图以帮助我们理解问题"
+
+  - type: textarea
+    id: additional
+    label: 附加信息
+    description: "还有其他需要补充的吗？"

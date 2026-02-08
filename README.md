@@ -1,5 +1,19 @@
 # LocalTrust 产品说明文档
 
+<div align="center">
+
+![LocalTrust Logo](https://img.shields.io/badge/LocalTrust-Stop%20Ignoring%20SSL%20Warnings-blue)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![GitHub stars](https://img.shields.io/github/stars/littleCareless/LocalTrust)
+![GitHub issues](https://img.shields.io/github/issues/littleCareless/LocalTrust)
+![GitHub last commit](https://img.shields.io/github/last-commit/littleCareless/LocalTrust)
+![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18-green)
+![pnpm](https://img.shields.io/badge/pnpm-%3E%3D8-orange)
+
+**English** | [中文](./README_CN.md)
+
+</div>
+
 ## 1. 产品概述
 
 **LocalTrust** 是一款专为软件开发团队设计的内部 HTTPS 管理工具。它旨在解决团队在内网开发环境中，因缺乏便捷的 HTTPS 配置方案而导致的开发效率低下和功能受限问题。通过自动化内部域名解析和自签名 SSL 证书管理，LocalTrust 使得团队成员能够轻松地在本地或内网环境中，以 HTTPS 协议访问各类 Web 应用，从而充分利用现代 Web 特性，并确保开发过程的顺畅与高效。

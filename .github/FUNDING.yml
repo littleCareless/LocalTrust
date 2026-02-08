@@ -1,0 +1,24 @@
+# 资金支持配置
+# Funding Configuration
+
+# GitHub Sponsors
+github: [littleCareless]
+
+# Open Collective
+# open_collective: localtrust
+
+# Patreon
+# patreon: username
+
+# 社区支持
+community_bridge:
+  - localtrust
+
+# 自定义资金链接
+custom:
+  - label: "支付宝赞助"
+    url: "https://afdian.net/a/littleCareless"
+    icon: "支付宝"
+  - label: "微信赞助"
+    url: "https://pay.weixin.qq.com/"
+    icon: "微信"
