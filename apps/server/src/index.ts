@@ -10,6 +10,8 @@ import { certRoutes } from './routes/cert';
 import { settingsRoutes } from './routes/settings';
 import hostsRoutes from './routes/hosts.js';
 import mappingsRoutes from './routes/mappings.js';
+import nodesRoutes from './routes/nodes.js';
+import tenantsRoutes from './routes/tenants.js';
 import './db'; // 初始化数据库
 import { initCA } from './services/ca.service';
 
@@ -45,6 +47,8 @@ async function start() {
     await fastify.register(settingsRoutes, { prefix: '/api/settings' });
     await fastify.register(hostsRoutes, { prefix: '/api/hosts' });
     await fastify.register(mappingsRoutes, { prefix: '/api' });
+    await fastify.register(nodesRoutes, { prefix: '/api' });
+    await fastify.register(tenantsRoutes, { prefix: '/api' });
 
     // 健康检查
     fastify.get('/health', async () => {

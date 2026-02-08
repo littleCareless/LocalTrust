@@ -11,16 +11,12 @@ const loading = ref(false);
 const dialogVisible = ref(false);
 const searchKeyword = ref('');
 const ipFilter = ref('');
-const managedFilter = ref<'all' | 'managed' | 'manual'>('all');
-const mappings = ref<DNSMapping[]>([]);
+const mappings = ref<(DNSMapping & { isActive?: boolean })[]>([]);
 const currentMode = ref<string>('dns_server');
-
-// 是否为本机模式
-const isLocalMode = computed(() => currentMode.value === 'local');
 
 // 获取所有去重的IP地址列表
 const uniqueIPs = computed(() => {
-  const ips = mappings.value.map((mapping: { ip: any }) => mapping.ip);
+  const ips = mappings.value.map((mapping) => mapping.ip);
   return Array.from(new Set(ips)).sort();
 });
 
@@ -30,16 +26,7 @@ const filteredMappings = computed(() => {
 
   // 按IP地址筛选
   if (ipFilter.value) {
-    result = result.filter((mapping: { ip: string }) => mapping.ip === ipFilter.value);
-  }
-
-  // 按管理状态筛选（仅在本机模式下）
-  if (isLocalMode.value && managedFilter.value !== 'all') {
-    if (managedFilter.value === 'managed') {
-      result = result.filter((mapping: { managed?: boolean }) => mapping.managed === true);
-    } else if (managedFilter.value === 'manual') {
-      result = result.filter((mapping: { managed?: boolean }) => mapping.managed === false);
-    }
+    result = result.filter((mapping) => mapping.ip === ipFilter.value);
   }
 
   return result;
@@ -138,13 +125,7 @@ const handleSubmit = async () => {
 };
 
 // 删除域名映射
-const handleDelete = async (domain: string, managed?: boolean) => {
-  // 本机模式下，只能删除 LocalTrust 管理的域名
-  if (isLocalMode.value && !managed) {
-    ElMessage.warning('手动配置的域名不可删除，请直接编辑 hosts 文件');
-    return;
-  }
-
+const handleDelete = async (domain: string) => {
   try {
     await ElMessageBox.confirm(`确定要删除域名 "${domain}" 吗？`, '确认删除', {
       confirmButtonText: '确定',
@@ -210,14 +191,6 @@ onMounted(() => {
             <el-option v-for="ip in uniqueIPs" :key="ip" :label="ip" :value="ip" />
           </el-select>
         </el-col>
-        <el-col :span="12" v-if="isLocalMode">
-          <el-select v-model="managedFilter" placeholder="按管理状态筛选" style="width: 100%">
-            <template #prefix>管理状态</template>
-            <el-option label="全部" value="all" />
-            <el-option label="LocalTrust 管理" value="managed" />
-            <el-option label="手动配置" value="manual" />
-          </el-select>
-        </el-col>
       </el-row>
     </el-card>
 
@@ -231,10 +204,9 @@ onMounted(() => {
             {{ row.port || '-' }}
           </template>
         </el-table-column>
-        <el-table-column v-if="isLocalMode" label="管理状态" width="140">
+        <el-table-column prop="tenantId" label="租户" width="120">
           <template #default="{ row }">
-            <el-tag v-if="row.managed" type="success" size="small"> LocalTrust 管理 </el-tag>
-            <el-tag v-else type="info" size="small"> 手动配置 </el-tag>
+            {{ row.tenantId || '默认' }}
           </template>
         </el-table-column>
         <el-table-column prop="createdAt" label="创建时间" width="180">
@@ -244,19 +216,11 @@ onMounted(() => {
         </el-table-column>
         <el-table-column label="操作" width="120" fixed="right">
           <template #default="{ row }">
-            <el-tooltip
-              v-if="isLocalMode && !row.managed"
-              content="手动配置的域名不可删除，请直接编辑 hosts 文件"
-              placement="top"
-            >
-              <el-button type="danger" size="small" :icon="Delete" disabled> 删除 </el-button>
-            </el-tooltip>
             <el-button
-              v-else
               type="danger"
               size="small"
               :icon="Delete"
-              @click="handleDelete(row.domain, row.managed)"
+              @click="handleDelete(row.domain)"
             >
               删除
             </el-button>

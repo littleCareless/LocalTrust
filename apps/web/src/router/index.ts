@@ -27,6 +27,18 @@ const router = createRouter({
           meta: { title: '域名管理' }
         },
         {
+          path: 'nodes',
+          name: 'Nodes',
+          component: () => import('../views/Nodes.vue'),
+          meta: { title: '节点管理' }
+        },
+        {
+          path: 'tenants',
+          name: 'Tenants',
+          component: () => import('../views/Tenants.vue'),
+          meta: { title: '租户管理' }
+        },
+        {
           path: 'settings',
           name: 'Settings',
           component: () => import('../views/Settings.vue'),

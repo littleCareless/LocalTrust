@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { Monitor, List, Setting, QuestionFilled } from '@element-plus/icons-vue';
+import { Monitor, List, Setting, QuestionFilled, Connection, UserFilled } from '@element-plus/icons-vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -31,6 +31,14 @@ const handleMenuSelect = (path: string) => {
         <el-icon class="menu-icon"><List /></el-icon>
         <span class="menu-label">域名管理</span>
       </el-menu-item>
+      <el-menu-item index="/nodes" class="menu-item-modern">
+        <el-icon class="menu-icon"><Connection /></el-icon>
+        <span class="menu-label">节点管理</span>
+      </el-menu-item>
+      <el-menu-item index="/tenants" class="menu-item-modern">
+        <el-icon class="menu-icon"><UserFilled /></el-icon>
+        <span class="menu-label">租户管理</span>
+      </el-menu-item>
       <el-menu-item index="/settings" class="menu-item-modern">
         <el-icon class="menu-icon"><Setting /></el-icon>
         <span class="menu-label">系统设置</span>
@@ -41,7 +49,7 @@ const handleMenuSelect = (path: string) => {
       </el-menu-item>
     </el-menu>
     <div class="sidebar-footer">
-      <span class="version-badge">v1.0.0</span>
+      <span class="version-badge">v1.1.0</span>
     </div>
   </div>
 </template>
