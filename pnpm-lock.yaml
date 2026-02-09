@@ -39,8 +39,8 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0
       dotenv:
-        specifier: ^16.4.1
-        version: 16.6.1
+        specifier: ^17.2.4
+        version: 17.2.4
       fastify:
         specifier: ^5.7.4
         version: 5.7.4
@@ -2581,8 +2581,8 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /dotenv@16.6.1:
-    resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
+  /dotenv@17.2.4:
+    resolution: {integrity: sha512-mudtfb4zRB4bVvdj0xRo+e6duH1csJRM8IukBqfTRvHotn9+LBXB8ynAidP9zHqoRC/fsllXgk4kCKlR21fIhw==}
     engines: {node: '>=12'}
     dev: false
 
