@@ -8,12 +8,18 @@ import { caRoutes } from './routes/ca';
 import { dnsRoutes } from './routes/dns';
 import { certRoutes } from './routes/cert';
 import { settingsRoutes } from './routes/settings';
+import { acmeRoutes } from './routes/acme';
+import { ldapRoutes } from './routes/ldap';
+import { clusterRoutes } from './routes/cluster';
+import { ctLogRoutes } from './routes/ct-log';
+import { k8sRoutes } from './routes/k8s';
 import hostsRoutes from './routes/hosts.js';
 import mappingsRoutes from './routes/mappings.js';
 import nodesRoutes from './routes/nodes.js';
 import tenantsRoutes from './routes/tenants.js';
 import './db'; // 初始化数据库
 import { initCA } from './services/ca.service';
+import { startRenewalScheduler } from './services/cert-renewal';
 
 const fastify = Fastify({
   logger: true,
@@ -24,6 +30,10 @@ async function start() {
     // 初始化数据库和 CA 证书
     console.log('📦 初始化数据库...');
     initCA(); // 如果不存在则生成 CA 证书
+
+    // 启动证书自动续期调度器
+    console.log('🔄 启动证书自动续期调度器...');
+    startRenewalScheduler();
 
     // 注册插件
     await fastify.register(cors, {
@@ -45,6 +55,11 @@ async function start() {
     await fastify.register(dnsRoutes, { prefix: '/api/dns' });
     await fastify.register(certRoutes, { prefix: '/api/cert' });
     await fastify.register(settingsRoutes, { prefix: '/api/settings' });
+    await fastify.register(acmeRoutes, { prefix: '/api/acme' });
+    await fastify.register(ldapRoutes, { prefix: '/api' });
+    await fastify.register(clusterRoutes, { prefix: '/api' });
+    await fastify.register(ctLogRoutes, { prefix: '/api' });
+    await fastify.register(k8sRoutes, { prefix: '/api' });
     await fastify.register(hostsRoutes, { prefix: '/api/hosts' });
     await fastify.register(mappingsRoutes, { prefix: '/api' });
     await fastify.register(nodesRoutes, { prefix: '/api' });

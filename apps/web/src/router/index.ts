@@ -39,6 +39,12 @@ const router = createRouter({
           meta: { title: '租户管理' }
         },
         {
+          path: 'certificates',
+          name: 'Certificates',
+          component: () => import('../views/Certificates.vue'),
+          meta: { title: 'ACME 证书管理' }
+        },
+        {
           path: 'settings',
           name: 'Settings',
           component: () => import('../views/Settings.vue'),
