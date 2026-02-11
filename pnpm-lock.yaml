@@ -103,8 +103,8 @@ importers:
         specifier: ^14.2.0
         version: 14.2.0(vue@3.5.27)
       axios:
-        specifier: ^1.6.5
-        version: 1.13.4
+        specifier: ^1.13.5
+        version: 1.13.5
       element-plus:
         specifier: ^2.5.4
         version: 2.13.2(vue@3.5.27)
@@ -2184,8 +2184,8 @@ packages:
     resolution: {integrity: sha512-lHe62zvbTB5eEABUVi/AwVh0ZKY9rMMDhmm+eeyuuUQbQ3+J+fONVQOZyj+DdrvD4BY33uYniyRJ4UJIaSKAfw==}
     dev: false
 
-  /axios@1.13.4:
-    resolution: {integrity: sha512-1wVkUaAO6WyaYtCkcYCOx12ZgpGf9Zif+qXa4n+oYzK558YryKqiL6UWwd5DqiH3VRW0GYhTZQ/vlgJrCoNQlg==}
+  /axios@1.13.5:
+    resolution: {integrity: sha512-cz4ur7Vb0xS4/KUN0tPWe44eqxrIu31me+fbang3ijiNscE129POzipJJA6zniq2C/Z6sJCjMimjS8Lc/GAs8Q==}
     dependencies:
       follow-redirects: 1.15.11
       form-data: 4.0.5
